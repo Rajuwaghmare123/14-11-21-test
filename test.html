@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+        #container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #p1{
+            font-size: 40px;
+            display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 50px;
+          margin-bottom: 30px;
+          font-family: Segoe Script;
+
+        }
+    
+        .question{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 600px;
+            /* height: 50px; */
+            box-shadow: 0 0 10px black;
+            margin: 30px;
+            padding: 10px;
+            
+           
+           
+        }
+            
+        .box1{
+            margin-top: 1px;
+        }
+        .ans{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 20px;
+        height: 20px;
+        border: 2px solid rgb(203, 171, 119);
+        box-shadow: 0px 0px  10px  black; 
+        cursor: pointer;
+        
+    }
+    .show-ans{
+        width: 100%;
+        padding: 5px;
+    }
+       
+    </style>
+    <script>
+      
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div><span id="p1">General Question</span></div>
+        
+      
+            <div class="question">
+            <div  id="p2"><span>Do you accept all credit cards?</span></div>
+            <div  class="ans" onclick="showAnsFirst()" done="false"> <span id="que1">+</span></div>
+          </div>
+          <div class="question">
+            <div  id="p3"><span>Do you use organic ingredients?</span></div>
+            <div  class="ans" onclick="showAnsSecond()" done="false"> <span id="que2">+</span></div>
+          </div>
+          <div class="question">
+            <div  id="p4"><span> Do you like to support formers?</span></div>
+            <div  class="ans" onclick="showAnsThird()" done="false"> <span id="que3">+</span></div>
+          </div>
+ 
+           
+    </div>
+    <script>
+        let question = document.getElementsByClassName('question')
+        console.log(question);
+        function showAnsFirst(){
+            if(question[0].children[1].done!="true"){
+            let div = document.createElement('div');
+            div.classList.toggle('show-ans');
+            div.style.marginLeft="200px"
+            div.innerHTML="Yes";
+            question[0].appendChild(div);
+            question[0].children[1].done="true";
+            document.getElementById('que1').innerText="-";
+
+            }
+            else{
+                question[0].children[2].remove();
+              question[0].children[1].done="false";
+              document.getElementById('que1').innerText="+";
+
+
+            }
+        }
+        function showAnsSecond(){
+            if(question[1].children[1].done!="true"){
+            let div = document.createElement('div');
+            div.classList.toggle('show-ans');
+            div.style.marginLeft="200px"
+            div.innerHTML='Yes';
+            question[1].appendChild(div);
+            question[1].children[1].done="true"
+            document.getElementById('que2').innerText="-";
+
+            }
+            else{
+                question[1].children[2].remove();
+                question[1].children[1].done="false"
+                document.getElementById('que2').innerText="+";
+
+            }
+        }
+        function showAnsThird(){
+            if(question[2].children[1].done!="true"){
+            let div = document.createElement('div');
+            div.classList.toggle('show-ans');
+            div.style.marginLeft="200px";
+            div.innerHTML='Yes';
+            question[2].appendChild(div);
+            question[2].children[1].done="true"
+            document.getElementById('que3').innerText="-";
+
+        }
+            else{
+                question[2].children[2].remove();
+                question[2].children[1].done="false"
+                document.getElementById('que3').innerText="+";
+
+            }
+        }
+    </script>
+</body>
+</html>
